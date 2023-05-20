@@ -140,3 +140,6 @@ C:\Users\panka\source\repos\XpenseTracker\bin\EntityFramework.SqlServer.xml
 C:\Users\panka\source\repos\XpenseTracker\bin\Microsoft.AspNetCore.Http.Abstractions.xml
 C:\Users\panka\source\repos\XpenseTracker\bin\Microsoft.AspNetCore.Http.Features.xml
 C:\Users\panka\source\repos\XpenseTracker\bin\System.Text.Encodings.Web.xml
+C:\Users\panka\source\repos\XpenseTracker\bin\System.Web.Cors.dll
+C:\Users\panka\source\repos\XpenseTracker\bin\System.Web.Http.Cors.dll
+C:\Users\panka\source\repos\XpenseTracker\bin\System.Web.Http.Cors.xml

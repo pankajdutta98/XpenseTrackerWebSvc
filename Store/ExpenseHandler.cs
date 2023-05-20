@@ -13,12 +13,19 @@ namespace XpenseTracker.Store
         private UserDbContext db = new UserDbContext();
         public async Task<int> AddExpense(ExpenseModel expenseModel)
         {
-            expenseModel.txnDate = DateTime.Now;
-            if (String.IsNullOrEmpty(expenseModel.title) || expenseModel.amount == 0)
-                return -1;
-            db.expenses.Add(expenseModel);
-            int resp = await db.SaveChangesAsync();
-            return resp;
+            try
+            {
+                expenseModel.txnDate = DateTime.Now;
+                if (String.IsNullOrEmpty(expenseModel.title) || expenseModel.amount == 0)
+                    return -1;
+                db.expenses.Add(expenseModel);
+                int resp = await db.SaveChangesAsync();
+                return resp;
+            }
+            catch(Exception ex)
+            {
+                throw (ex);
+            }
         }
         public async Task<int> EditExpense(ExpenseModel expenseModel)
         {
