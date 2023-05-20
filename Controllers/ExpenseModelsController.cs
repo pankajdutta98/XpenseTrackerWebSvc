@@ -16,7 +16,7 @@ using XpenseTracker.Store;
 
 namespace XpenseTracker.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    
     public class ExpenseModelsController : ApiController
     {
         private readonly ExpenseHandler _expenseHandler;
