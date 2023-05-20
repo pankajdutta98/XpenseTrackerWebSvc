@@ -15,7 +15,6 @@ namespace XpenseTracker.Store
         {
             try
             {
-                expenseModel.txnDate = DateTime.Now;
                 if (String.IsNullOrEmpty(expenseModel.title) || expenseModel.amount == 0)
                     return -1;
                 db.expenses.Add(expenseModel);

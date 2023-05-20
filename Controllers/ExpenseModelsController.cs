@@ -29,7 +29,7 @@ namespace XpenseTracker.Controllers
         // GET: api/ExpenseModels
         public IQueryable<ExpenseModel> Getexpenses()
         {
-            return db.expenses;
+            return db.expenses.OrderByDescending(x=>x.txnDate);
         }
 
         // GET: api/ExpenseModels/5
@@ -62,7 +62,7 @@ namespace XpenseTracker.Controllers
             {
                 return BadRequest("Invalid data entered. Please enter valid data");
             }
-            return Ok(new { message = "Expense added successfully", expenses = db.expenses });
+            return Ok(new { message = "Expense added successfully", expenses = db.expenses.OrderByDescending(x=>x.txnDate) });
         }
 
         [ResponseType(typeof(ExpenseModel))]
