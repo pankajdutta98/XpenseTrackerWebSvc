@@ -77,7 +77,7 @@ namespace XpenseTracker.Controllers
             {
                 return BadRequest("Not Found!!");
             }
-            return Ok(new { message = "Expense updated successfully", expenses = db.expenses });
+            return Ok(new { message = "Expense updated successfully", expenses = db.expenses.OrderByDescending(x => x.txnDate) });
         }
         [HttpPost]
         [ResponseType(typeof(ExpenseModel))]
@@ -92,7 +92,7 @@ namespace XpenseTracker.Controllers
             {
                 return BadRequest("Not Found!!");
             }
-            return Ok(new { message = "Expense deleted successfully", expenses = db.expenses });
+            return Ok(new { message = "Expense deleted successfully", expenses = db.expenses.OrderByDescending(x => x.txnDate) });
         }
     }
 }
