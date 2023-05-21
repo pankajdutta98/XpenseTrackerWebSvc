@@ -28,18 +28,25 @@ namespace XpenseTracker.Store
         }
         public async Task<int> EditExpense(ExpenseModel expenseModel)
         {
-            ExpenseModel expense = new ExpenseModel();
-            expense = db.expenses.Where(exp => exp.txnId == expenseModel.txnId).FirstOrDefault();
-            if(expense == null)
+            try
             {
-                return -1;
+                ExpenseModel expense = new ExpenseModel();
+                expense = db.expenses.Where(exp => exp.txnId == expenseModel.txnId).FirstOrDefault();
+                if (expense == null)
+                {
+                    return -1;
+                }
+                expense.title = expenseModel.title;
+                expense.amount = expenseModel.amount;
+                expense.txnDate = expenseModel.txnDate;
+                expense.category = expenseModel.category;
+                int resp = await db.SaveChangesAsync();
+                return resp;
             }
-            expense.title = expenseModel.title;
-            expense.amount = expenseModel.amount;
-            expense.txnDate = expenseModel.txnDate;
-            expense.category = expenseModel.category;
-            int resp = await db.SaveChangesAsync();
-            return resp;
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         public async Task<int> DeleteExpense(ExpenseModel expenseModel)
         {
